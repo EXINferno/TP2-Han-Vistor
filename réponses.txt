@@ -1,0 +1,130 @@
+GIT TP2 - Han Vistor
+
+
+Question 1.
+
+Le git status après le git init m'indique que je me trouve sur la branche master, qu'il n'y a aucun commit et qu'il n'y a rien a valider.
+
+Question 2.
+
+echo "# TP2 : Gestion des branches" > README.md
+git add README.md
+git commit -m "Ajout du README.md avec le titre"
+git branch -m develop
+
+Question 3.
+
+git switch -c feature1
+echo "Ceci est une description du projet" >> README.md
+git add README.md
+git commit -m "Ajout d'une description du projet dans README.md"
+
+Question 4.
+
+git switch develop
+echo "Modification sur develop avant merge de f1." >> README.md
+git add README.md
+git commit -m "Ajout d'une phrase sur develop avant fusion de feature1"
+git merge feature1
+
+Il y a un conflit car les 2 README.md possèdent une phrase sur la deuxième ligne, il faut donc le modifier à la main et commit.
+
+git add README.md
+git commit -m "Résolution du conflit"
+
+Question 5.
+
+git switch develop
+git switch -c feature2
+echo "# TP2 - NomPrenom - Gestion des branches" > README.md
+git add README.md
+git commit -m "Modification du titre dans README.md - feature2"
+
+Question 6.
+
+git switch develop
+git switch -c feature3
+echo "# TP2 - Gestion des branches et fusions" > README.md
+git add README.md
+git commit -m "Modification du titre dans README.md - feature3"
+
+Question 7.
+
+git switch develop
+git merge feature2
+// Pas de conflit
+
+git merge feature3
+// Conflit recontrer
+
+Question 8.
+
+git add README.md
+git commit -m "Résolution du conflit feature3"
+git remote add origin https://github.com/EXINferno/TP2-Han-Vistor.git
+$ git push -u origin develop
+
+
+REBASE
+
+Question 1.
+
+git switch develop
+git switch -c feature4
+echo "Cette phrase concerne la partie rebase du TP2." >> README.md
+git add README.md
+git commit -m "Ajout dans README.md - partie rebase"
+
+Question 2.
+
+git add README.md
+git commit -m "Ajout dans README.md - mention feature4"
+
+Question 3.
+
+echo "Fin des modifications de la feature f4" >> README.md
+git add README.md
+git commit -m "Ajout dans README.md - dernière ligne feature4"
+
+Question 4.
+
+Question 5.
+
+git switch develop
+echo "# TP2 - Branches, merge et rebase - NomPrenom" > README.md
+git add README.md
+git commit -m "Mise à jour du titre du README.md dans develop"
+
+Question 6.
+
+git switch feature4
+git rebase develop
+
+Question 7.
+
+git merge fusionne une autre branche dans la branche courante,
+cela crée un commit de fusion si des modifications ont été faites de part et d'autre,
+il conserve l’historique complet des branches parallèles.
+
+Question 8.
+
+git rebase <branche> repositionne les commits de ta branche comme s’ils étaient faits après la branche donnée,
+permet de réécrire l’historique de façon linéaire, sans commit de fusion,
+utile ici pour faire un squash (= un seul commit propre pour plusieurs petits commits).
+
+Question 9.
+
+git switch develop
+git push -f origin develop
+
+Question 10.
+
+echo "Toutes les commandes du TP" > reponses.txt  # à compléter avec ton historique
+git add reponses.txt
+git commit -m "Ajout des réponses du TP"
+git push
+
+
+
+
+
